@@ -51,7 +51,7 @@ export class AuthService {
       username:credentials.username,
       country:credentials.country,
       birthDate:credentials.date,
-      sex:credentials.sex
+      sexe:credentials.sexe
     }
     return this.http.post(this.apiUrl+'/auth/register',cred).pipe(
       tap((res:any) =>{
@@ -147,6 +147,25 @@ export class AuthService {
 
   addCategories( mycategories: number[]) {
     return this.http.post(this.apiUrl+'/user/addcategories',{categories:mycategories}).pipe(
+      tap((res:any) =>{
+        //res.hasOwnProperty('Token') && localStorage.setItem('Token',res.Token)
+        console.log(res);
+        //this.router.navigate(['/explore'])
+      }) ,
+      catchError((err)=> {
+        console.log(err)
+        return new Observable(res => {
+          let reqData = {
+            message:err.error,
+            status:err.status
+          }
+          res.next(reqData)
+        })})
+   )
+  }
+
+  getCategories() {
+    return this.http.get(this.apiUrl+'/user/categories').pipe(
       tap((res:any) =>{
         //res.hasOwnProperty('Token') && localStorage.setItem('Token',res.Token)
         console.log(res);
