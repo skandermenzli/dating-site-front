@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import {MessageI, MessagePaginateI} from "../../Model/message.interface";
+import {ChatService} from "../../services/chat-service/chat.service";
 
 @Component({
   selector: 'app-messages-nav',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private chatService : ChatService) { }
 
+  friends : string[] = ["Salah","Sonia","Ali"] ;
+
+  messages$ : Observable<MessagePaginateI>  = this.chatService.getMessages();
+  messages! : MessageI[];
   ngOnInit(): void {
+
   }
+
+  ngAfterViewInit(): void {
+  }
+
 
 }

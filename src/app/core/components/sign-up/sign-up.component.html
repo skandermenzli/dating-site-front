@@ -3,7 +3,7 @@
     <form #formulaire="ngForm"class="row g-3">
         <div class="col-md-6">
           <label for="first-name" class="form-label">first name</label>
-          <input required type="text" class="form-control" id="first-name" ngModel name="firstname" #firstname="ngModel">
+          <input #firstNameRef required type="text" class="form-control" id="first-name" ngModel name="firstname" #firstname="ngModel">
         </div>
         <div class="col-md-6">
           <label for="last-name" class="form-label">last-name</label>
@@ -61,7 +61,7 @@
             </ng-multiselect-dropdown>
         </div>
       <div class="col-md-6">
-      <app-upload-image></app-upload-image> 
+      <app-upload-image></app-upload-image>
       </div>
 -->
 

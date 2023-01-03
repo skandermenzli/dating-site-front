@@ -45,6 +45,7 @@ import {SearchBarComponent} from "./components/search-bar/search-bar.component";
 import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 import { LogoNavComponent } from './components/logo-nav/logo-nav.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import {MessageItemComponent} from "./components/message-item/message-item.component";
 export function tokenGetter() {
   return localStorage.getItem('Token') || '{}' ;
 }
@@ -85,7 +86,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {
     SearchBarComponent,
     ProfileNavComponent,
     LogoNavComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    MessageItemComponent
   ],
   providers: [AuthService,ImageService],
     imports: [

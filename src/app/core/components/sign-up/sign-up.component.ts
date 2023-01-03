@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { HttpClient } from '@angular/common/http';
@@ -10,19 +10,23 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit , AfterViewInit {
 
   dropdownList : object[] = [];
   dropdownSettings:IDropdownSettings={};
   countries: any;
   notMatch:boolean=false
 
-
+  @ViewChild('firstNameRef') firstNameRefEl!  : ElementRef ;
 
   public invalidLogin = false
   public errorMessage =''
 
   constructor(private http:HttpClient , private authService : AuthService) { }
+
+  ngAfterViewInit(): void {
+        this.firstNameRefEl.nativeElement.focus() ;
+  }
 
   ngOnInit(): void {
     this.http.get('https://restcountries.com/v3.1/all').subscribe(
@@ -49,13 +53,6 @@ export class SignUpComponent implements OnInit {
       allowSearchFilter: true
     };
   }
-
-  logger(form:NgForm){
-
-    console.log(form);
-
-
-  }
   register(form:NgForm){
     console.log(form);
     if(form.value.password!=form.value.cpassword){
@@ -74,7 +71,7 @@ export class SignUpComponent implements OnInit {
         }
       )
     }
-    
+
 
   }
 
