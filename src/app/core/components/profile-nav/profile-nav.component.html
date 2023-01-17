@@ -1,8 +1,9 @@
 <li class="nav-item dropdown pe-3">
 
   <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-    <img *ngIf="user.image else elseblock" src="http://localhost:3000/auth/image/{{user.image}}" alt="Profile" class="rounded-circle">
-    <ng-template #elseblock><i class="fa-solid fa-user"></i></ng-template>
+    <!--<img *ngIf="user.image else elseblock" src="http://localhost:3000/auth/image/{{user.image|defaultImage}}" alt="Profile" class="rounded-circle">
+    <ng-template #elseblock><i class="fa-solid fa-user"></i></ng-template>-->
+    <img  src="http://localhost:3000/auth/image/{{user.image|defaultImage}}" alt="Profile" class="rounded-circle">
     <span class="d-none d-md-block dropdown-toggle ps-2">{{user.username}}</span>
   </a><!-- End Profile Iamge Icon -->
 

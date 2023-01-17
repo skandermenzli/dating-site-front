@@ -48,6 +48,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { MyRoomsComponent } from './pages/my-rooms/my-rooms.component';
 import { MatchedMessagingComponent } from './pages/matched-messaging/matched-messaging.component';
 import { MatchModalComponent } from './pages/messaging/room/match-modal/match-modal.component';
+import { DefaultImagePipe } from './pipes/default-image.pipe';
 export function tokenGetter() {
   return localStorage.getItem('Token') || '{}' ;
 }
@@ -91,7 +92,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {
     CategoriesComponent,
     MyRoomsComponent,
     MatchedMessagingComponent,
-    MatchModalComponent
+    MatchModalComponent,
+    DefaultImagePipe
   ],
   providers: [AuthService,ImageService],
     imports: [
