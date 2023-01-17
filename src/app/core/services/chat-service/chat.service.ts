@@ -33,6 +33,10 @@ export class ChatService {
     this.socket.emit('paginateMatchedRooms', { limit, page });
   }
 
+  emitSearchedRooms(limit: number, page: number,search: string) {
+    this.socket.emit('paginateSearchedRooms', { limit, page,search});
+  }
+
   sendMessage(message : MessageI) {
     //this.socket.emit('sendMessage',message)
     console.log(message)
