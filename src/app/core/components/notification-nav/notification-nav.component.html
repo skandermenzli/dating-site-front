@@ -5,7 +5,8 @@
     <span *ngIf="matches.length" class="badge bg-primary badge-number">{{matches.length}}</span>
   </a><!-- End Notification Icon -->
 
-  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+  <ul *ngIf="matches.length; else noNotificationBlock" class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+
     <li class="dropdown-header">
       You have new notifications
       <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
@@ -22,12 +23,6 @@
         <p>30 min. ago</p>
       </div>
     </li>
-
-    
-
-
-    
-
     <li>
       <hr class="dropdown-divider">
     </li>
@@ -38,3 +33,11 @@
   </ul><!-- End Notification Dropdown Items -->
 
 </li><!-- End Notification Nav -->
+
+<ng-template #noNotificationBlock>
+  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+    <li class="dropdown-header">
+      You have no notifications yet
+    </li>
+  </ul>
+</ng-template>

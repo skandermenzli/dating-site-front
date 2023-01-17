@@ -28,7 +28,7 @@ import {FormsModule} from "@angular/forms";
     FormsModule
   ],
 
-  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, 
+  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
     {
       provide: HTTP_INTERCEPTORS,

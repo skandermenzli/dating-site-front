@@ -6,24 +6,22 @@
             <h2 class="fw-bold mb-0 modal-title">Sign in</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-    
+
           <div class="modal-body p-5 pt-0">
             <form #loginform="ngForm">
               <div class="alert alert-danger" *ngIf="this.invalidLogin">{{ errorMessage }}</div>
-               
+
               <div class="form-floating mb-3">
                 <input required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="email" class="form-control rounded-4" id="floatingInput" placeholder="name@example.com" ngModel name="username" #username="ngModel">
                 <label for="floatingInput">Email address</label>
-                <!-- <div class="alert alert-danger" *ngIf="username.invalid && username.dirty">email must be of form "cc@aaa.tt"</div> -->
               </div>
               <div class="form-floating mb-3">
-                <input required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" type="password" class="form-control rounded-4" id="floatingPassword" placeholder="Password" ngModel name="password" #password="ngModel">
+                <input type="password" class="form-control rounded-4" id="floatingPassword" placeholder="Password" ngModel name="password" #password="ngModel">
                 <label for="floatingPassword">Password</label>
-                <!-- <div class="alert alert-danger" *ngIf="password.invalid && password.dirty">password must contain at least 1 Maj 1 Min and lengthmin of 7</div> -->
               </div>
-              <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary " [disabled]="loginform.invalid"  type="submit"(click)="login(loginform)" >sign in</button>
+              <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary " [disabled]="loginform.invalid"  type="submit" (click)="login(loginform)" >sign in</button>
               <small class="text-muted p-1">you don't have an account sign up!!</small>
-              <button [routerLink]="['sign-up']"class="w-100 mb-2 btn btn-lg rounded-4 btn-outline-primary" type="submit">sign up</button>
+              <button [routerLink]="['sign-up']" data-bs-dismiss="modal" class="w-100 mb-2 btn btn-lg rounded-4 btn-outline-primary" type="submit" >sign up</button>
               <hr class="my-4">
               <h2 class="fs-5 fw-bold mb-3">Or connect with:</h2>
               <button class="w-100 py-2 mb-2 btn btn-outline-info rounded-4" type="submit">
@@ -43,7 +41,7 @@
         </div>
       </div>
   </div>
-  
+
 
 
 

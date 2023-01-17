@@ -45,6 +45,7 @@ import {SearchBarComponent} from "./components/search-bar/search-bar.component";
 import { ProfileNavComponent } from './components/profile-nav/profile-nav.component';
 import { LogoNavComponent } from './components/logo-nav/logo-nav.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import {MessageItemComponent} from "./components/message-item/message-item.component";
 import { MyRoomsComponent } from './pages/my-rooms/my-rooms.component';
 import { MatchedMessagingComponent } from './pages/matched-messaging/matched-messaging.component';
 import { MatchModalComponent } from './pages/messaging/room/match-modal/match-modal.component';
@@ -90,6 +91,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {
     ProfileNavComponent,
     LogoNavComponent,
     CategoriesComponent,
+    MessageItemComponent,
     MyRoomsComponent,
     MatchedMessagingComponent,
     MatchModalComponent,
